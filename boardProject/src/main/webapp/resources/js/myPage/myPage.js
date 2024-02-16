@@ -24,7 +24,7 @@ if(updateInfo != null){
 
         if(regEx.test(memberNickname.value)){ // 유효
             memberNickname.style.color = "green";
-
+            
         }else{ // 무효
             memberNickname.style.color = "red";
         }

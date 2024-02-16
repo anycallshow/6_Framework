@@ -11,7 +11,7 @@
     <title>마이페이지</title>
 
     <link rel="stylesheet" href="/resources/css/myPage/myPage-style.css">
-<!-- test -->
+    
 </head>
 <body>
     <main>
