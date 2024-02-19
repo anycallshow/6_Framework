@@ -136,3 +136,33 @@ btn2.addEventListener("click", () => {
         result2.innerHTML = "<h4>일치하는 회원이 없습니다.</h4>";
     });
 })
+
+/*  
+    1. 이메일이 일부라도 일치하는 모든 회원 조회 
+    조건 1. fetch() API POST 방식으로 할 것 
+    조건 2. 요청주소는 /selectMemberList
+    2. 일치하는 회원이 없을 시 조회결과가 없습니다. 문구 출력
+*/
+
+// 이메일이 일부라도 일치하는 모든 회원 조회
+const input = document.getElementById("input");
+const btn3 = document.getElementById("btn3");
+const result3 = document.getElementById("result3");
+
+btn3.addEventListener("click", () => {
+    fetch("/selectMemberList",{
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify({"input" : input.value})
+    })
+    .then( resp => resp.json())
+    .then( memberList => {
+        console.log(memberList);
+
+        if(memberList.length != 0){ // 일치하는 회원이 있을때
+
+        }else{
+        }
+    })
+    .catch(err => console.log(err));
+})

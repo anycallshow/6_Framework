@@ -1,5 +1,7 @@
 package edu.kh.project.member.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -54,6 +56,14 @@ public class AjaxDAO {
 	 */
 	public Member selectMember(String email) {
 		return sqlSession.selectOne("ajaxMapper.selectMember", email);
+	}
+
+	/** 이메일이 일부라도 일치하는 모든 회원 조회
+	 * @param input
+	 * @return memberList
+	 */
+	public List<Member> selectMemberList(String input) {
+		return sqlSession.selectList("ajaxMapper.selectMemberList", input);
 	}
 
 }

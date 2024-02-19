@@ -1,5 +1,6 @@
 package edu.kh.project.member.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,19 @@ public class AjaxController {
 		
 		return service.selectMember(email);
 	}
+	
+	
+	// 이메일이 일부라도 일치하는 모든 회원 조회
+	@PostMapping(value="/selectMemberList", produces = "application/json; charset=UTF-8")
+	@ResponseBody 
+	public List<Member> selectMemberList(@RequestBody Map<String, Object> paramMap) {
+		
+		String input = (String)paramMap.get("input");
+		
+		return service.selectMemberList(input);
+	}
+	
+	
 	
 	
 	

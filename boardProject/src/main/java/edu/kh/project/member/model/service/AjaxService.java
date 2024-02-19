@@ -1,5 +1,7 @@
 package edu.kh.project.member.model.service;
 
+import java.util.List;
+
 import edu.kh.project.member.model.dto.Member;
 
 public interface AjaxService {
@@ -33,5 +35,11 @@ public interface AjaxService {
 	 * @return member
 	 */
 	Member selectMember(String email);
+
+	/** 이메일이 일부라도 일치하는 모든 회원 조회
+	 * @param input
+	 * @return memberList
+	 */
+	List<Member> selectMemberList(String input);
 
 }
