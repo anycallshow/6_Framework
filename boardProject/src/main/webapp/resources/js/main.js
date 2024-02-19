@@ -150,40 +150,45 @@ const btn3 = document.getElementById("btn3");
 const result3 = document.getElementById("result3");
 
 btn3.addEventListener("click", () => {
-    fetch("/selectMemberList",{
-        method : "POST",
-        headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify({"input" : input.value})
-    })
-    .then( resp => resp.json())
-    .then( memberList => {
-        console.log(memberList);
 
-        if(memberList.length != 0){ // 일치하는 회원이 있을때
-            
+    if(input.value.trim().length == 0){
+        alert("검색어를 입력해주세요.");
+
+    }else{
+        fetch("/selectMemberList",{
+            method : "POST",
+            headers : {"Content-Type" : "application/json"},
+            body : JSON.stringify({"input" : input.value})
+        })
+        .then( resp => resp.json())
+        .then( memberList => {
+
             result3.innerText = "";
-
-            for (let i of memberList) {
+    
+            if(memberList.length != 0){ // 일치하는 회원이 있을때
+    
+                for (let i of memberList) {
+                    const tr = document.createElement("tr");
+                    const td1 = document.createElement("td");
+                    const td2 = document.createElement("td");
+                    const td3 = document.createElement("td");
+    
+                    td1.innerText = i.memberNo;
+                    td2.innerText = i.memberEmail;
+                    td3.innerText = i.memberNickname;
+    
+                    tr.append(td1,td2,td3);
+                    result3.append(tr);
+                }
+    
+            }else{
                 const tr = document.createElement("tr");
-                const td1 = document.createElement("td");
-                const td2 = document.createElement("td");
-                const td3 = document.createElement("td");
-
-                td1.innerText = i.memberNo;
-                td2.innerText = i.memberEmail;
-                td3.innerText = i.memberNickname;
-
-                tr.append(td1,td2,td3);
+    
+                tr.innerHTML = "<td colspan=3><h4>일치하는 회원이 없습니다.</h4></td>";
                 result3.append(tr);
             }
+        })
+        .catch(err => console.log(err));
+    }
 
-        }else{
-            const tr = document.createElement("tr");
-            result3.innerText = "";
-
-            tr.innerHTML = "<td colspan=3><h4>일치하는 회원이 없습니다.</h4></td>";
-            result3.append(tr);
-        }
-    })
-    .catch(err => console.log(err));
 })
