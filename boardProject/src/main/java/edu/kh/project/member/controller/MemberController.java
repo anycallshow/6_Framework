@@ -43,7 +43,7 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
-	// 로그인			: /member/login
+	// 로그인		: /member/login
 	// 로그아웃		: /member/logout
 	
 	// 로그인 (/member/login), POST 방식 처리

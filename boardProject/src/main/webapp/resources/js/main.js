@@ -42,7 +42,7 @@ if(loginFrm != null){
     
 }
 
-// 비동기로 이메일이 일치하는 회원의 닉네임 조회
+// 비동기로 이메일이 일치하는 회원의 닉네임 조회    
 function selectNickname(email){
 
     fetch("/selectNickname?email=" + email) 
@@ -72,11 +72,67 @@ btn1.addEventListener("click", () => {
     // resp.text() : 응답 객체 내용을 문자열로 변환하여 반환
     .then( tel => {
         // tel : 파싱되어 반환된 값이 저장된 변수
-
-        /* 비동기 요청 후 수행할 코드 */
-        result1.innerText = tel; // 조회 결과를 result1에 출력
+        if(tel == ""){
+            result1.innerText = "일치하는 회원이 없습니다.";
+        }else{
+            /* 비동기 요청 후 수행할 코드 */
+            result1.innerText = tel; // 조회 결과를 result1에 출력
+        }
     })
-
-    .catch( err => console.log(err));
+    .catch( err => console.log(err) );
     // 에러 발생 시 콘솔에 출력
+})
+
+// fetch() API를 이용한 POST 방식 요청
+
+// 이메일을 입력 받아 일치하는 회원의 정보를 모두 조회
+const inputEmail = document.getElementById("inputEmail");
+const btn2 = document.getElementById("btn2");
+const result2 = document.getElementById("result2");
+
+btn2.addEventListener("click", () => {
+
+    // POST 방식 비동기 요청
+
+    // JSON.stringify() : JS객체 -> JSON 
+    // JSON.parse()     : JSON -> JS 객체
+
+    fetch("/selectMember",{
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify({"email" : inputEmail.value})
+    })
+    .then( resp =>resp.json() ) // 응답 객체를 매개변수로 얻어와 파싱
+    .then( member => {
+        console.log(member);
+
+        // ul(#result2)의 내부 내용 모두 없애기
+        result2.innerHTML = "";
+
+        const li1 = document.createElement("li");
+        li1.innerText = `회원번호 : ${member.memberNo}`;
+
+        const li2 = document.createElement("li");
+        li2.innerText = `이메일 : ${member.memberEmail}`;
+
+        const li3 = document.createElement("li");
+        li3.innerText = `닉네임 : ${member.memberNickname}`;
+
+        const li4 = document.createElement("li");
+        li4.innerText = `전화번호 : ${member.memberTel}`;
+
+        const li5 = document.createElement("li");
+        li5.innerText = `주소 : ${member.memberAddress}`;
+
+        const li6 = document.createElement("li");
+        li6.innerText = `가입일 : ${member.enrollDate}`;
+
+        result2.append(li1,li2,li3,li4,li5,li6);
+
+
+    }) // 파싱한 데이터를 이용해서 비동기 처리 후 동작
+    .catch(err => {
+        console.log(err);
+        result2.innerHTML = "<h4>일치하는 회원이 없습니다.</h4>";
+    });
 })

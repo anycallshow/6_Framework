@@ -4,6 +4,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.project.member.model.dto.Member;
+
 @Repository // DB 연결 의미 + Bean 등록 (IOC)
 public class AjaxDAO {
 	
@@ -26,6 +28,32 @@ public class AjaxDAO {
 	public String selectMemberTel(String nickname) {
 		
 		return sqlSession.selectOne("ajaxMapper.selectMemberTel",nickname);
+	}
+
+	/** 이메일 중복 검사 DAO
+	 * @param email
+	 * @return count
+	 */
+	public int checkEmail(String email) {
+		
+		return sqlSession.selectOne("ajaxMapper.checkEmail",email);
+	}
+
+	/** 닉네임 중복 검사 DAO
+	 * @param nickname
+	 * @return count
+	 */
+	public int checkNickname(String nickname) {
+		
+		return sqlSession.selectOne("ajaxMapper.checkNickname",nickname);
+	}
+
+	/** 이메일로 회원 정보 조회 DAO
+	 * @param email
+	 * @return member
+	 */
+	public Member selectMember(String email) {
+		return sqlSession.selectOne("ajaxMapper.selectMember", email);
 	}
 
 }

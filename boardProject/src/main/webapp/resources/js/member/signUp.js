@@ -117,11 +117,33 @@ memberEmail.addEventListener("input", () => {
 
     // 2) 입력 받은 이메일과 정규신 일치 여부 판별
     if(regEx.test(memberEmail.value)){ // 유효한 경우
-        emailMessage.innerText = "유효한 형식 입니다.";
-        emailMessage.classList.remove("error");
-        emailMessage.classList.add("confirm");
 
-        checkObj.memberEmail = true; // 유효 O
+        /*********************************************************************/
+        /* fetch() API를 이용한 ajax(비동기 통신) */
+
+        // GET 방식 ajax 요청(파라미터는 쿼리스트링으로!)
+        fetch("/dupCheck/email?email=" + memberEmail.value)
+        .then( response => response.text() ) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
+        .then( count => {
+            // count : 중복되면 1, 중복 아니면 0
+            if(count == 0){
+                emailMessage.innerText = "사용 가능한 이메일 입니다.";
+                emailMessage.classList.add("confirm");
+                emailMessage.classList.remove("error");
+                checkObj.memberEmail = true; // 유효 O
+
+            }else{
+                emailMessage.innerText = "이미 사용중인 이메일 입니다.";
+                emailMessage.classList.add("error");
+                emailMessage.classList.remove("confirm");
+                checkObj.memberEmail = false; // 유효 X
+
+            }
+        }) // 파싱한 데이터를 이용해서 수행할 코드 작성
+        .catch(err => console.log(err)) // 예외 처리
+
+        /*********************************************************************/
+       
 
     }else{
         emailMessage.innerText = "이메일 형식이 유효하지 않습니다.";
@@ -232,8 +254,10 @@ memberPwConfirm.addEventListener("input", () => {
 const memberNickname = document.getElementById("memberNickname");
 const nickMessage = document.getElementById("nickMessage");
 
+// 닉네임이 입력되었을 때
 memberNickname.addEventListener("input", ()=>{
 
+    // 닉네임이 입력되지 않은 경우
     if(memberNickname.value.trim().length == 0){
         memberNickname.value = "";
         nickMessage.innerText = "한글,영어,숫자로만 2~10글자사이로 입력해주세요.";
@@ -244,14 +268,31 @@ memberNickname.addEventListener("input", ()=>{
 
         return;
     }
+
+    // 정규표현식으로 유효성 검사
     const regEx = /^[가-힣\w\d]{2,10}$/;
 
-    if(regEx.test(memberNickname.value)){
-        nickMessage.innerText = "유효한 형식 입니다.";
-        nickMessage.classList.remove("error");
-        nickMessage.classList.add("confirm");
+    if(regEx.test(memberNickname.value)){ // 유효
 
-        checkObj.memberNickname = true; // 유효 O
+        fetch("/dupCheck/nickname?nickname="+memberNickname.value)
+        .then( resp => resp.text())
+        .then( count => {
+            if(count == 0){
+                // 중복이 아닌 경우
+                nickMessage.innerText = "사용 가능한 닉네임 입니다.";
+                nickMessage.classList.remove("error");
+                nickMessage.classList.add("confirm");
+                checkObj.memberNickname = true; // 유효 O
+
+            }else{
+                nickMessage.innerText = "이미 사용중인 닉네임 입니다.";
+                nickMessage.classList.remove("confirm");
+                nickMessage.classList.add("error");
+                checkObj.memberNickname = false; // 유효 X
+            }
+
+        })
+        .catch( err => console.log(err))
 
     }else{
         nickMessage.innerText = "유효하지않은 형식 입니다.";
@@ -270,7 +311,7 @@ memberTel.addEventListener("input", ()=>{
 
     if(memberTel.value.trim().length == 0){
         memberTel.value = "";
-        telMessage.innerText = "한글,영어,숫자로만 2~10글자사이로 입력해주세요.";
+        telMessage.innerText = "전화번호를 입력해주세요.(- 제외)";
 
         telMessage.classList.remove("confirm", "error");
 

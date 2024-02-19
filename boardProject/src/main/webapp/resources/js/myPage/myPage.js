@@ -113,13 +113,13 @@ if(changePwFrm != null){
 }
 
 // 회원 탈퇴 페이지인 경우
-const myPageFrm = document.getElementById("myPageFrm");
+const secessionFrm = document.getElementById("secessionFrm");
 const memberPw = document.getElementById("memberPw");
 const agree = document.getElementById("agree");
 
-if(myPageFrm != null){
+if(secessionFrm != null){
     
-    myPageFrm.addEventListener("submit", e => {
+    secessionFrm.addEventListener("submit", e => {
 
         // 비밀번호 미작성
         if(memberPw.value.trim().length == 0){
@@ -140,6 +140,7 @@ if(myPageFrm != null){
         }
         // 정말로 탈퇴 하시겠습니까? -> 취소 클릭 시 제출 X
         if(!confirm("정말로 탈퇴 하시겠습니까?")){
+            alert("탈퇴 취소");
             e.preventDefault();
             return;
         }
