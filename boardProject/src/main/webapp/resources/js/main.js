@@ -153,20 +153,22 @@ btn3.addEventListener("click", () => {
 
     if(input.value.trim().length == 0){
         alert("검색어를 입력해주세요.");
+        return;
 
     }else{
         fetch("/selectMemberList",{
             method : "POST",
-            headers : {"Content-Type" : "application/json"},
-            body : JSON.stringify({"input" : input.value})
+            headers : {"Content-Type" : "application/text"}, // 문자열 하나를 파라미터로 전달
+            body : input.value // 보내질 문자열 하나
         })
         .then( resp => resp.json())
         .then( memberList => {
-
+            
             result3.innerText = "";
     
             if(memberList.length != 0){ // 일치하는 회원이 있을때
     
+                // 향상된 for문으로 memberList 순차 접근
                 for (let i of memberList) {
                     const tr = document.createElement("tr");
                     const td1 = document.createElement("td");

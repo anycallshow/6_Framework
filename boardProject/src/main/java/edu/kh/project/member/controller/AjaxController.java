@@ -75,9 +75,9 @@ public class AjaxController {
 	// 이메일이 일부라도 일치하는 모든 회원 조회
 	@PostMapping(value="/selectMemberList", produces = "application/json; charset=UTF-8")
 	@ResponseBody 
-	public List<Member> selectMemberList(@RequestBody Map<String, Object> paramMap) {
+	public List<Member> selectMemberList(@RequestBody String input) {
 		
-		String input = (String)paramMap.get("input");
+		// System.out.println("input : "+ input);
 		
 		return service.selectMemberList(input);
 	}
