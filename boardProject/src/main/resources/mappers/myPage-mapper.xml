@@ -16,7 +16,7 @@
   
   <!--  
   		마이바티스 기본 별칭
-  		java				mybatis
+  		java			mybatis
   		int				_int
   		Integer			int
   		String			string

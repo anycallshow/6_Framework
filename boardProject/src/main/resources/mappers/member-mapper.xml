@@ -51,6 +51,7 @@
 		- parameterType : 전달 받은 값의 자료형
 						  기본 : 패키지명 + 클래스명
 						  별칭 : Mybaris 별칭 또는 사용자 지정 별칭
+						  다 생략 가능(객체도 가능)
 						  
 		- parameterMap : (사용 안함)
 		
