@@ -528,9 +528,22 @@ FROM (
     FROM DUAL
 ) A;
 
+-- 이미지 삭제
+DELETE BOARD_IMG 
+WHERE BOARD_NO = #{boardNo} 
+AND IMG_ORDER IN(${deleteList});
 
+-- 이미지 수정
+UPDATE BOARD_IMG SET
+IMG_PATH ＝ #{imagePath},
+IMG_RENAME ＝ #{imageReName},
+IMG_ORIGINAL ＝ #{imageOriginal}
+WHERE BOARD_NO = #{boardNo} 
+AND IMG_ORDER = #{imageOrder}
 
+SELECT * FROM BOARD_IMG ORDER BY 1 DESC;
 
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, #{}, #{}, #{}, #{}, #{})
 
 
 

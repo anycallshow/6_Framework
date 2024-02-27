@@ -51,3 +51,53 @@ boardLike.addEventListener("click", e => {
     .catch(err => console.log(err))
 
 })
+
+// 게시글 수정 버튼 클릭 시
+const updateBtn = document.getElementById("updateBtn");
+if(updateBtn != null){
+
+    updateBtn.addEventListener("click", ()=>{
+                        // /board2/1/2000/update
+        location.href = location.pathname.replace("board", "board2") 
+                        + "/update" 
+                        + location.search;
+    });
+}
+
+// 게시글 삭제 버튼이 클릭 되었을 때
+document.getElementById("deleteBtn").addEventListener("click", ()=>{
+
+    swal({
+        title : "정말 삭제 하시겠습니까?",
+        text : "삭제 후 게시글을 되돌릴 수 없습니다.",
+        icon : "error",
+        buttons : true,
+        dangerMode : true,
+    })
+    .then((willDelete) => {
+        if(willDelete){
+            location.href = location.pathname.replace("board", "board2")
+                        + "/delete"
+        } else {
+            swal("취소되었습니다.", "", "success");
+        }
+    });
+
+
+
+
+
+    // if(swal("정말 삭제 하시겠습니까?")){
+
+    //     // board2/1/2000/delete (GET)
+    //     location.href = location.pathname.replace("board", "board2")
+    //                     + "/delete"
+
+    //     // 삭제 서비스 호출 성공 시 redirect:/board/{boardCode}
+    //     // + "삭제 되었습니다." alert 출력
+
+    //     // 삭제 서비스 호출 실패 시 redirect:/board/{boardCode}/{boardNo}
+    //     // + "삭제 실패ㅠㅠ." alert 출력
+
+    // }
+})

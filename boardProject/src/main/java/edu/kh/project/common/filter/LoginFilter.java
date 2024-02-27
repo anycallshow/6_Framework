@@ -22,7 +22,7 @@ import edu.kh.project.member.model.dto.Member;
 //				지정된 주소로 요청이 올 때 마다 동작			    
 
 @WebFilter(filterName="loginFilter",
-		   urlPatterns = {"/myPage/*"})
+		   urlPatterns = {"/myPage/*", "/board2/*"})
 public class LoginFilter implements Filter {
 
 	public void init(FilterConfig fConfig) throws ServletException {
@@ -33,6 +33,7 @@ public class LoginFilter implements Filter {
 	
 	public void destroy() {
 		// 필터 코드가 변경 되었을 때
+		
 		// 변경 이전 필터를 파괴하는 메소드
 		System.out.println("--- 이전 로그인 필터 파괴 ---");
 	}
