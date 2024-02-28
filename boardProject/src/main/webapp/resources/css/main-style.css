@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+.swal-overlay {
+    background-color: rgba(43, 165, 137, 0.45);
+}
+
 /* div, main, section, header, footer, article, nav, aside, form
 { border : 1px solid black; }  */
 /* 다 만들고 삭제 */

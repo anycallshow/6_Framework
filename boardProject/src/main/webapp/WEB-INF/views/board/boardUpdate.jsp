@@ -43,7 +43,7 @@
                 board.imageList에 존재하는 이미지 객체를 얻어와
                 순서(imageOrder)별로 변수 생성
             --%>
-            <c:forEach items="${board.imageList}" var="img">
+            <c:forEach items="${board.imageList}" var="img" >
                 <c:choose>
                    <c:when test="${img.imageOrder == 0}">
                         <c:set var="img0" value="${img.imagePath}${img.imageReName}"/>

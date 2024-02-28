@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -174,6 +175,7 @@ public class BoardController2 {
 			  @PathVariable("boardCode") int boardCode
 			, @PathVariable("boardNo") int boardNo
 			, RedirectAttributes ra
+			, @RequestHeader("referer") String referer
 			) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -192,6 +194,7 @@ public class BoardController2 {
 		} else {
 			message = "삭제 실패 ㅠㅠ";
 			path += "/board/" + boardCode + "/" + boardNo;
+			// path += referer;
 		}
 		
 		ra.addFlashAttribute("message", message);
