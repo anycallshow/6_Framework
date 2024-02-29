@@ -1,0 +1,145 @@
+/* 배경화면 */
+body{
+    background-image: url("윈터.jpg");
+    background-repeat: no-repeat;
+    background-size : cover;
+}
+
+main{
+    width: 1200px;
+    height: 900px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 500px;
+}
+
+/* 로고 영역 */
+.logo-area{
+    font-size: 30px;
+}
+
+/* 로그인 부분 */
+#loginFrm{
+    width: 420px;
+    height: 180px;
+    padding : 10px;
+    margin-top : 10px;
+
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* id/pw 부분 */
+.id-pw-area{
+    display: flex;
+
+    border: 0;
+    flex-basis: 60%;
+}
+
+/* 아이디 입력부분 */
+.id-pw-area > section:first-child{
+    width: 70%;
+    border: 1px solid #ccc;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.id-pw-area > section:first-child > input{
+    border : 0;
+    /* border-right : 1px solid #ccc; */
+    flex-basis: 50%;
+    outline: none;
+    padding: 5px;
+}
+
+.id-pw-area > section:first-child > input[name='userId']{
+    border-bottom: 1px solid #ccc;
+}
+
+/* input 포커스 */
+.id-pw-area > section:first-child > input:focus{
+    border: 2px solid crimson;
+}
+
+/* 로그인 버튼 영역 */
+.id-pw-area > section:last-child{
+    width: 30%;
+    
+    display: flex;
+    justify-content: center;
+}
+
+/* 로그인 버튼 */
+.id-pw-area > section:last-child > button{
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+    border : 1px solid #ccc;
+}
+
+/* 로그인 버튼 호버 */
+.id-pw-area > section:last-child > button:hover{
+    background-color: crimson;
+    color: white;
+}
+
+/* 아이디 저장 */
+.saveId-area{
+    /* border-bottom: 2px solid #ccc; */
+    display: flex;
+    align-items: center;
+}     
+
+.saveId-area > input{
+    display: none;
+}
+
+#saveId+label{
+    margin-left: 15px;
+    display: flex;
+    cursor: pointer;
+}
+
+#saveId+label > i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-right: 5px;
+    color : #ccc;
+    font-size: 1.05em;
+}
+
+.saveId-area > input:checked + label > i{
+    background-color: crimson;
+    /* border-color: crimson; */
+    color: white;
+}
+
+/* id/pw찾기/회원가입 영역 */
+.text-area {
+    margin-top: 10px;
+    text-align: center;
+}
+.text-area a{
+    text-decoration: none;
+    color: black;
+    margin: 0 5px;
+}

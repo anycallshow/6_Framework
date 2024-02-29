@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="login.css">
+
+    <title>로그인</title>
+</head>
+<body>
+    
+    <main>
+
+        <!-- 로고 부분 -->
+        <section class="logo-area">
+            <h1>UNI-SYSTEM</h1>
+        </section>
+
+        <!-- 로그인 부분 -->
+        <form action="login" method="post" id="loginFrm">
+            <fieldset class="id-pw-area">
+                <section>
+                    <input type="text" name="userId" id="userId" placeholder="아이디" autocomplete="off">
+                    <input type="password" name="userPw" id="userPw" placeholder="비밀번호">                  
+                </section>
+                <section>
+                    <button>로그인</button>
+                </section>
+            </fieldset>
+
+            <!-- 아이디 저장 부분 -->
+            <div class="saveId-area">
+                <input type="checkbox" name="saveId" id="saveId">
+                <label for="saveId"><i class="fas fa-check"></i>아이디 저장</label>
+            </div>
+
+            <!-- 찾기/회원가입 부분 -->
+            <p class="text-area">
+                <a href="#">아이디 찾기</a>
+                |
+                <a href="#">비밀번호 찾기</a>
+                |
+                <a href="#">회원가입</a>
+            </p>
+            
+        </form>
+
+    </main>
+
+    <script src="login.js"></script>
+    
+</body>
+</html>

@@ -10,9 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 페이지</title>
 
-
     <link rel="stylesheet" href="/resources/css/member/login.css">
-
 
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 </head>
@@ -20,7 +18,6 @@
 
 <body>
     <main>
-
 
         <section class="logo-area">
             <a href="/">
