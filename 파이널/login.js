@@ -23,8 +23,24 @@ loginFrm.addEventListener("submit", e => {
 // 아이디 저장 체크
 const saveId = document.getElementById("saveId");
 
-saveId.addEventListener("click", ()=>{
+saveId.addEventListener("change", () => {
+
     if(saveId.checked){
-        
+
+        swal({
+            title : "개인 정보 보호를 위해 개인 PC에서의 사용을 권장합니다.",
+            text : "개인 PC가 아닌 경우 취소를 눌러주세요.",
+            icon : "warning", // 아이콘 모양 
+            buttons : ["취소", "저장"],
+            dangerMode : true,
+        })
+        .then((willDelete) => {
+            if(willDelete){ // 예 버튼 클릭시
+                saveId.checked = true;
+            } else {
+                saveId.checked = false;
+            }
+        });
+
     }
 })
