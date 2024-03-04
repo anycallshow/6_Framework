@@ -211,6 +211,20 @@ query.addEventListener("input", ()=>{
         .then( resp => resp.json())
         .then( searchList => {
             console.log(searchList);
+
+            if(searchList.length != 0){
+
+                resultSet.innerText = "";
+
+                for (const i of searchList) {
+                    const li = document.createElement("li");
+                    li.innerText = i.boardTitle;
+                    resultSet.append(li);
+                }
+            }else{
+                
+            }
+            
         })
         .catch(err => console.log(err));
 

@@ -399,7 +399,7 @@
 	</select>
 
 	<select id="boardSearch" resultMap="board_rm">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+		SELECT ROWNUM,BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
          
          <![CDATA[
             CASE  
@@ -430,6 +430,7 @@
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE
 		BOARD_DEL_FL = 'N'
+		AND ROWNUM BETWEEN 1 AND 10
 		AND BOARD_TITLE LIKE '%${query}%'
 	</select>
 

@@ -1,0 +1,105 @@
+div, main, section, header, footer, article, nav, aside, form
+{ border : 1px solid black; } 
+/* 다 만들고 삭제 */
+
+* { 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+main{
+    width: 1200px;
+    height: 900px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 500px;
+}
+
+/* 페이지네이션영역 */
+.paginations-area{
+    width: 1400px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 45px;
+}
+
+/* 페이지네이션 영역 2 */
+#paginations{
+    width: 300px;
+    height: 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paginations-area > :nth-child(1) , .paginations-area > :nth-child(3){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 1.0em;
+    font-weight: bold;
+
+    border: 2px solid crimson;
+    border-radius: 15px;
+    color: crimson;
+
+    margin: 0 5px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out;
+}
+.paginations-area > :nth-child(1):hover , .paginations-area > :nth-child(3):hover{
+    background-color: crimson;
+    color: white;
+}
+
+/* 각 페이지 네이션 하나 영역 */
+#paginations > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 1.0em;
+    font-weight: bold;
+
+    border: 2px solid crimson;
+    border-radius: 15px;
+    color: crimson;
+
+    margin: 0 5px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out;
+}
+/* 버튼 클릭 효과 */
+#paginations div:hover {
+    background-color: crimson;
+    color: white;
+}
+#paginations div.active {
+    background-color: crimson;
+    color: white;
+    border: 3px solid #ddd;
+}
