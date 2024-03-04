@@ -96,7 +96,7 @@ public class OpenAPIController {
 		return responseText;
 	}
 
-	// xml형식으로 대기오염 OpenAPI 활용하기
+	// xml형식으로 지진,해일 OpenAPI 활용하기
 	@ResponseBody
 	@RequestMapping(value = "tsunami", produces = "text/xml; charset=UTF-8")
 	public String tsunami() throws IOException{
@@ -106,7 +106,7 @@ public class OpenAPIController {
 		url += "?serviceKey=" + SERVICEKEY; // 서비스키
 		url += "&pageNo=1";
 		url += "&type=xml"; // 리턴 타입
-		url += "&numOfRows=50"; // 결과 개수
+		url += "&numOfRows=2"; // 결과 개수
 
 		// 1. 작성된 url 정보를 넣어 URL 객체 생성
 		URL requestUrl = new URL(url);

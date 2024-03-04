@@ -39,18 +39,38 @@
 
             <!-- 찾기/회원가입 부분 -->
             <p class="text-area">
-                <a href="#">아이디 찾기</a>
+                <a class="btn-open-modal-id">아이디 찾기</a>
                 |
-                <a href="#">비밀번호 찾기</a>
+                <a class="btn-open-modal-pw">비밀번호 찾기</a>
                 |
                 <a href="#">회원가입</a>
             </p>
-            
         </form>
-
     </main>
 
+    <div class="modal id">
+        <div class="modal_body">
+            <div class="close-area">&times;</div>
+            <h2>아이디 찾기</h2>
+            <input type="text" name="userName" id="idUserName" placeholder="이름을 입력해주세요.">
+            <input type="email" name="userEmail" id="idUserEmail" placeholder="이메일을 입력해주세요.">
+            <br>
+            <button class="btn" id="btn1">아이디 찾기</button>
+        </div>
+    </div>
+
+    <div class="modal pw">
+        <div class="modal_body">
+            <div class="close-area">&times;</div>
+            <h2>비밀번호 찾기</h2>
+            <input type="text" name="userName" id="pwUserName" placeholder="이름을 입력해주세요.">
+            <input type="email" name="userEmail" id="pwUserEmail" placeholder="이메일을 입력해주세요.">
+            <input type="text" name="userId" id="pwUserId" placeholder="아이디를 입력해주세요.">
+            <br>
+            <button class="btn" id="btn2">비밀번호 찾기</button>
+        </div>
+    </div>
+
     <script src="login.js"></script>
-    
 </body>
 </html>

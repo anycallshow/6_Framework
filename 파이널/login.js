@@ -6,16 +6,28 @@ const userPw = document.getElementById("userPw");
 loginFrm.addEventListener("submit", e => {
 
     if(userPw.value.trim() == 0){
-        swal("비밀번호 입력해주세요.","");
-        userPw.value = "";
-        userPw.focus();
+
+        swal({
+            title : "비밀번호를 입력해주세요.",
+                icon  : "error",
+                closeOnClickOutside : false
+        }).then(function(){
+            userPw.value = "";
+            userPw.focus();
+        });
         e.preventDefault();
     }
 
     if(userId.value.trim() == 0){
-        swal("아이디를 입력해주세요.","");
-        userId.value = "";
-        userId.focus();
+
+        swal({
+            title : "아이디를 입력해주세요.",
+                icon  : "error",
+                closeOnClickOutside : false
+        }).then(function(){
+            userId.value = "";
+            userId.focus();
+        });
         e.preventDefault();
     }
 })
@@ -44,3 +56,116 @@ saveId.addEventListener("change", () => {
 
     }
 })
+
+// 모달창 영역
+const modalId = document.querySelector(".modal.id");
+const modalPw = document.querySelector(".modal.pw");
+const idModal = document.querySelector(".btn-open-modal-id"); // 아이디 찾기
+const pwModal = document.querySelector(".btn-open-modal-pw"); // 비밀번호 찾기
+const closeArea = document.querySelectorAll(".close-area");
+
+// 모달창 켜기(아이디 찾기)
+idModal.addEventListener("click", () => {
+    modalId.style.display="flex";
+});
+
+// 모달영역이 아닌 부분 클릭시 모달창 닫기
+modalId.addEventListener("click", e => {
+    const evTarget = e.target
+    if(evTarget.classList.contains("modal")) {
+        modalId.style.display = "none"
+    }
+})
+
+// 모달창 켜기(비밀번호 찾기)
+pwModal.addEventListener("click", () => {
+    modalPw.style.display="flex";
+});
+
+// 모달영역이 아닌 부분 클릭시 모달창 닫기
+modalPw.addEventListener("click", e => {
+    const evTarget = e.target
+    if(evTarget.classList.contains("modal")) {
+        modalPw.style.display = "none"
+    }
+})
+
+// x버튼 클릭시 모달창 닫기
+closeArea[0].addEventListener("click", ()=>{
+    modalId.style.display ="none";
+});
+closeArea[1].addEventListener("click", ()=>{
+    modalPw.style.display ="none";
+});
+
+// 아이디 찾기 버튼 클릭시
+const btn1 = document.getElementById("btn1");
+const idUserName = document.getElementById("idUserName");
+const idUserEmail = document.getElementById("idUserEmail");
+
+if(btn1 != null){
+    btn1.addEventListener("click", ()=>{
+        if(idUserEmail.value.trim().length == 0){
+            swal({
+                title : "이메일을 입력해주세요.",
+                    icon  : "error",
+                    closeOnClickOutside : false
+            }).then(function(){
+                idUserEmail.focus();
+            });
+        }
+        
+        if(idUserName.value.trim().length == 0){
+            swal({
+                title : "이름을 입력해주세요.",
+                    icon  : "error",
+                    closeOnClickOutside : false
+            }).then(function(){
+                idUserName.focus();
+            });
+        }
+
+    })
+}
+
+// 비밀번호 찾기 버튼 클릭시
+const btn2 = document.getElementById("btn2");
+const pwUserName = document.getElementById("pwUserName");
+const pwUserEmail = document.getElementById("pwUserEmail");
+const pwUserId = document.getElementById("pwUserId");
+
+if(btn2 != null){
+    btn2.addEventListener("click", ()=>{
+
+        if(pwUserId.value.trim().length == 0){
+            swal({
+                title : "아이디를 입력해주세요.",
+                    icon  : "error",
+                    closeOnClickOutside : false
+            }).then(function(){
+                pwUserId.focus();
+            });
+        }
+
+        if(pwUserEmail.value.trim().length == 0){
+            swal({
+                title : "이메일을 입력해주세요.",
+                    icon  : "error",
+                    closeOnClickOutside : false
+            }).then(function(){
+                pwUserEmail.focus();
+            });
+        }
+        
+        if(pwUserName.value.trim().length == 0){
+            swal({
+                title : "이름을 입력해주세요.",
+                    icon  : "error",
+                    closeOnClickOutside : false
+            }).then(function(){
+                pwUserName.focus();
+            });
+        }
+
+    })
+}

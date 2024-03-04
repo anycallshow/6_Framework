@@ -129,7 +129,6 @@ main{
 
 .saveId-area > input:checked + label > i{
     background-color: crimson;
-    /* border-color: crimson; */
     color: white;
 }
 
@@ -141,5 +140,95 @@ main{
 .text-area a{
     text-decoration: none;
     color: black;
+    cursor: pointer;
     margin: 0 5px;
+}
+
+/* 모달 영역 */
+.modal{
+    position:absolute;
+    display:none;
+    
+    justify-content: center;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+    
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal_body{
+    position:absolute;
+    
+    /* 모달을 화면가운데 놓기위함. */
+    top:50%;  
+
+    /* 모달의 가로크기  */
+    width:400px;  
+    /* 모달의 세로크기  */
+    height:400px; 
+
+    padding:40px;  
+
+    text-align: center;
+
+    /* 모달창 배경색 흰색 */
+    background-color: rgb(255,255,255); 
+
+    /* 테두리  */
+    border-radius:10px;
+
+    /* 테두리 그림자 */
+    box-shadow:0 2px 3px 0 rgba(34,36,38,0.15); 
+    
+    /* 모듈창열었을때 위치설정 가운데로  */
+    transform:translateY(-50%); 
+}
+
+/* 모달 input태그 */
+.modal_body > input{
+    width: 300px;
+    height: 30px;
+    margin: 15px;
+    padding: 5px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+.modal_body > input:focus{
+    border: 2px solid crimson;
+}
+
+/* 모달 찾기 버튼 */
+.btn{
+    width: 300px;
+    height: 50px;
+
+    position: absolute;
+    top: 80%;
+    left: 85px;
+
+    border : 1px solid crimson;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: crimson;
+    color: white;
+}
+
+
+/* x버튼 */
+.close-area {
+    display: inline;
+    float: right;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px gray;
+    color: black;
 }

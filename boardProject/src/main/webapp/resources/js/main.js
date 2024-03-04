@@ -194,3 +194,28 @@ btn3.addEventListener("click", () => {
     }
 
 })
+
+// 검색창 검색시 실시간으로 검색어(제목검색)
+const query = document.getElementById("query");
+const resultSet = document.getElementById("resultSet");
+
+query.addEventListener("input", ()=>{
+
+    if(query.value.trim().length != 0){
+        
+        fetch("/board/search",{
+            method : "POST",
+            headers : {"Content-Type" : "application/text"}, 
+            body : query.value
+        })
+        .then( resp => resp.json())
+        .then( searchList => {
+            console.log(searchList);
+        })
+        .catch(err => console.log(err));
+
+    }
+
+
+
+})

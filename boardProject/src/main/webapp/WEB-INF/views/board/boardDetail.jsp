@@ -188,6 +188,8 @@
         // 해결 방법 : EL 구문을 '',"" 문자열로 감싸면 해결
         //             -> EL 값이 null 이여도 ""(빈 문자열)로 출력 
         const loginMemberNo = "${loginMember.memberNo}";
+
+        const boardCode = "${boardCode}";
     </script>
 
     <script src="/resources/js/board/boardDetail.js"></script>
