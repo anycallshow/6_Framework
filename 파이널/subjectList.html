@@ -9,33 +9,230 @@
 
 </head>
 <body>
+
+    <header>
+
+        <div class="headerAll">
+    
+            <!-- 첫번째 줄 네비게이션 바 -->
+            <nav class="navigation1">
+                <!-- 공통 -->
+                <div class="navigation1-row1">
+                    <a href="#">오시는길</a>
+    
+                    <a href="#">공지사항</a>
+                    <a href="#">학사일정</a>
+                    <a href="#">1:1문의</a>
+                    <a href="#">자유게시판</a>
+                </div>
+        
+                <!-- 로그인 안했을 경우 -->
+                <!-- <div class="navigation1-row2">
+                    <button><a href="#">회원가입</a></button>
+                    <button><a href="#">로그인</a></button>
+                </div> -->
+                
+                <!-- 교수로 로그인 했을 경우 -->
+                <div class="navigation1-row2-professor">
+                    <div><span>홍길동</span> 교수 환영합니다.</div>
+                    <div class="quickMenu">
+                        <div id="quickMenu-easy">간편메뉴</div>
+                        <div id="quickMenu-close">닫기</div>
+                        <div id="quickMenu-myPage"><a href="#">내 정보 조회</a></div>
+                        <div id="quickMenu-pwChange"><a href="#">비밀번호 변경</a></div>
+                    </div>
+                </div>
+    
+            </nav>
+        
+            <!-- 두번째줄 네비게이션바 -->
+            <nav class="navigation2">
+                <!-- 클릭 시 메인 페이지로 이동하는 문구 -->
+                <div class="logoArea">
+                    <a href="/" class="logoText">
+                        <div>UNI-SYSTEM</div>
+                        <div>KH INFORMATION EDUCATION CENTER</div>
+                        <div>UNIVERSITY</div>
+                    </a>
+                </div>
+    
+                <div class="navigation2-row2">
+                    <a href="#" id="home">홈</a>
+    
+    
+                    <!-- 로그인(조건:학생,교수,교직원) 전 과 후로 메뉴 표시 다르게 -->
+                    
+                    <!-- 교수전용 -->
+                    <a href="#" id="student">학생</a>
+                    <a href="#" id="subject">교과목</a>
+                    <a href="#" id="exam">시험</a>
+                    <a href="#" id="professor">교수</a>
+                    <a href="#" id="otherW">기타</a>
+                </div>
+            </nav>
+        
+            <!-- 세번째줄 네비게이션바 -->
+            <nav class="navigation3">
+    
+                <!-- 클릭한 것에 따라서 내용 변경 -->
+    
+                <!-- 홈을 올렸을 경우 -->
+                <div class="navigation3-home">
+                    <a href="#">공지사항</a>
+                    <a href="#">학사일정</a>
+                    <a href="#">자유게시판</a>
+                    <a href="#">1:1문의</a>
+                </div>
+    
+                <!-- 학생을 올렸을 경우 -->
+                <div class="navigation3-student">
+                    <a href="#">학생 조회</a>
+                    <a href="#">성적 조회</a>
+                    <a href="#">성적 등록</a>
+                    <a href="#">성적 수정</a>
+                </div>
+    
+                <!-- 교과목을 올렸을 경우 -->
+                <div class="navigation3-subject">
+                    <a href="#">교과목 조회</a>
+                </div>
+    
+                <!-- 시험을 올렸을 경우 -->
+                <div class="navigation3-exam">
+                    <a href="#">시험 관련 메뉴 1</a>
+                    <a href="#">시험 관련 메뉴 2</a>
+                    <a href="#">시험 관련 메뉴 3</a>
+                </div>
+    
+                <!-- 교수에 올렸을 경우 -->
+                <div class="navigation3-professor">
+                    <a href="#">교수 조회</a>
+                    <a href="#">교원증 발급</a>
+                    <a href="#">교수 관련 메뉴</a>
+                </div>
+    
+                <!-- 기타에 올렸을 경우 -->
+                <div class="navigation3-otherW">
+                    <a href="#">기타 관련 메뉴 1</a>
+                    <a href="#">기타 관련 메뉴 2</a>
+                    <a href="#">기타 관련 메뉴 3</a>
+                </div>
+    
+    
+            </nav>
+    
+        </div>
+    
+    </header>
+    
     <main>
+
         <form action="#" id="searchFrm">
             <select name="key" id="subjectKey">
-                <option value="">분류</option>
                 <option value="a">과목번호</option>
                 <option value="b">학과명</option>
                 <option value="c">과목명</option>
                 <option value="d">전담 교수</option>
             </select>
             <input type="search" name="query" id="subjectQuery" placeholder="검색어를 입력해주세요.">
-            <button>검색</button>
+            <button id="searchBtn">검색</button>
         </form>
 
-        <table border="1" >
+        <table>
             <thead>
                 <tr>
-                    <td>과목 번호</td>
-                    <td>학과명</td>
-                    <td>과목명</td>
-                    <td>전담 교수</td>
-                    <td>강의 시간</td>
-                    <td>과목 변경</td>
-                    <td>삭제</td>
+                    <th>과목 번호</th>
+                    <th>학과명</th>
+                    <th>과목명</th>
+                    <th>전담 교수</th>
+                    <th>강의 시간</th>
+                    <th>과목 변경</th>
+                    <th>삭제</th>
                 </tr>
             </thead>
 
             <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>국어국문학과</td>
+                    <td>고전시가론특강</td>
+                    <td>홍길동</td>
+                    <td>월,화(11:00~12:00)</td>
+                    <td><button>과목수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>국어국문학과</td>
+                    <td>고전시가론특강</td>
+                    <td>홍길동</td>
+                    <td>월,화(11:00~12:00)</td>
+                    <td><button>과목수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>국어국문학과</td>
+                    <td>고전시가론특강</td>
+                    <td>홍길동</td>
+                    <td>월,화(11:00~12:00)</td>
+                    <td><button>과목수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>국어국문학과</td>
+                    <td>고전시가론특강</td>
+                    <td>홍길동</td>
+                    <td>월,화(11:00~12:00)</td>
+                    <td><button>과목수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>국어국문학과</td>
+                    <td>고전시가론특강</td>
+                    <td>홍길동</td>
+                    <td>월,화(11:00~12:00)</td>
+                    <td><button>과목수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>국어국문학과</td>
+                    <td>고전시가론특강</td>
+                    <td>홍길동</td>
+                    <td>월,화(11:00~12:00)</td>
+                    <td><button>과목수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>국어국문학과</td>
+                    <td>고전시가론특강</td>
+                    <td>홍길동</td>
+                    <td>월,화(11:00~12:00)</td>
+                    <td><button>과목수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>국어국문학과</td>
+                    <td>고전시가론특강</td>
+                    <td>홍길동</td>
+                    <td>월,화(11:00~12:00)</td>
+                    <td><button>과목수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>국어국문학과</td>
+                    <td>고전시가론특강</td>
+                    <td>홍길동</td>
+                    <td>월,화(11:00~12:00)</td>
+                    <td><button>과목수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
                 <tr>
                     <td>1</td>
                     <td>국어국문학과</td>
@@ -65,6 +262,6 @@
 
     </main>
 
-    
+    <script src="subjectList.js"></script>
 </body>
 </html>
