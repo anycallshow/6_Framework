@@ -180,6 +180,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="/resources/js/board/boardList.js"></script>
+    <script src="/resources/js/main.js"></script>
 
 </body>
 </html>

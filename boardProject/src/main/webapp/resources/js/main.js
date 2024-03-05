@@ -61,27 +61,31 @@ const inputNickname = document.getElementById("inputNickname");
 const btn1 = document.getElementById("btn1");
 const result1 = document.getElementById("result1");
 
-btn1.addEventListener("click", () => {
-    
-    // fetch() API를 이용해서 ajax(비동기 통신)
+if(btn1 != null){
 
-    // GET 방식 요청 (파라미터를 쿼리스트링으로 추가)
-    fetch("/selectMemberTel?nickname=" + inputNickname.value)
-    .then( resp => resp.text() )
-    // resp : 응답 객체
-    // resp.text() : 응답 객체 내용을 문자열로 변환하여 반환
-    .then( tel => {
-        // tel : 파싱되어 반환된 값이 저장된 변수
-        if(tel == ""){
-            result1.innerText = "일치하는 회원이 없습니다.";
-        }else{
-            /* 비동기 요청 후 수행할 코드 */
-            result1.innerText = tel; // 조회 결과를 result1에 출력
-        }
+    btn1.addEventListener("click", () => {
+        
+        // fetch() API를 이용해서 ajax(비동기 통신)
+    
+        // GET 방식 요청 (파라미터를 쿼리스트링으로 추가)
+        fetch("/selectMemberTel?nickname=" + inputNickname.value)
+        .then( resp => resp.text() )
+        // resp : 응답 객체
+        // resp.text() : 응답 객체 내용을 문자열로 변환하여 반환
+        .then( tel => {
+            // tel : 파싱되어 반환된 값이 저장된 변수
+            if(tel == ""){
+                result1.innerText = "일치하는 회원이 없습니다.";
+            }else{
+                /* 비동기 요청 후 수행할 코드 */
+                result1.innerText = tel; // 조회 결과를 result1에 출력
+            }
+        })
+        .catch( err => console.log(err) );
+        // 에러 발생 시 콘솔에 출력
     })
-    .catch( err => console.log(err) );
-    // 에러 발생 시 콘솔에 출력
-})
+
+}
 
 // fetch() API를 이용한 POST 방식 요청
 
@@ -90,52 +94,55 @@ const inputEmail = document.getElementById("inputEmail");
 const btn2 = document.getElementById("btn2");
 const result2 = document.getElementById("result2");
 
-btn2.addEventListener("click", () => {
-
-    // POST 방식 비동기 요청
-
-    // JSON.stringify() : JS객체 -> JSON 
-    // JSON.parse()     : JSON -> JS 객체
-
-    fetch("/selectMember",{
-        method : "POST",
-        headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify({"email" : inputEmail.value})
+if(btn2 != null){
+    
+    btn2.addEventListener("click", () => {
+    
+        // POST 방식 비동기 요청
+    
+        // JSON.stringify() : JS객체 -> JSON 
+        // JSON.parse()     : JSON -> JS 객체
+    
+        fetch("/selectMember",{
+            method : "POST",
+            headers : {"Content-Type" : "application/json"},
+            body : JSON.stringify({"email" : inputEmail.value})
+        })
+        .then( resp =>resp.json() ) // 응답 객체를 매개변수로 얻어와 파싱
+        .then( member => {
+            console.log(member);
+    
+            // ul(#result2)의 내부 내용 모두 없애기
+            result2.innerHTML = "";
+    
+            const li1 = document.createElement("li");
+            li1.innerText = `회원번호 : ${member.memberNo}`;
+    
+            const li2 = document.createElement("li");
+            li2.innerText = `이메일 : ${member.memberEmail}`;
+    
+            const li3 = document.createElement("li");
+            li3.innerText = `닉네임 : ${member.memberNickname}`;
+    
+            const li4 = document.createElement("li");
+            li4.innerText = `전화번호 : ${member.memberTel}`;
+    
+            const li5 = document.createElement("li");
+            li5.innerText = `주소 : ${member.memberAddress}`;
+    
+            const li6 = document.createElement("li");
+            li6.innerText = `가입일 : ${member.enrollDate}`;
+    
+            result2.append(li1,li2,li3,li4,li5,li6);
+    
+    
+        }) // 파싱한 데이터를 이용해서 비동기 처리 후 동작
+        .catch(err => {
+            console.log(err);
+            result2.innerHTML = "<h4>일치하는 회원이 없습니다.</h4>";
+        });
     })
-    .then( resp =>resp.json() ) // 응답 객체를 매개변수로 얻어와 파싱
-    .then( member => {
-        console.log(member);
-
-        // ul(#result2)의 내부 내용 모두 없애기
-        result2.innerHTML = "";
-
-        const li1 = document.createElement("li");
-        li1.innerText = `회원번호 : ${member.memberNo}`;
-
-        const li2 = document.createElement("li");
-        li2.innerText = `이메일 : ${member.memberEmail}`;
-
-        const li3 = document.createElement("li");
-        li3.innerText = `닉네임 : ${member.memberNickname}`;
-
-        const li4 = document.createElement("li");
-        li4.innerText = `전화번호 : ${member.memberTel}`;
-
-        const li5 = document.createElement("li");
-        li5.innerText = `주소 : ${member.memberAddress}`;
-
-        const li6 = document.createElement("li");
-        li6.innerText = `가입일 : ${member.enrollDate}`;
-
-        result2.append(li1,li2,li3,li4,li5,li6);
-
-
-    }) // 파싱한 데이터를 이용해서 비동기 처리 후 동작
-    .catch(err => {
-        console.log(err);
-        result2.innerHTML = "<h4>일치하는 회원이 없습니다.</h4>";
-    });
-})
+}
 
 /*  
     1. 이메일이 일부라도 일치하는 모든 회원 조회 
@@ -149,51 +156,54 @@ const input = document.getElementById("input");
 const btn3 = document.getElementById("btn3");
 const result3 = document.getElementById("result3");
 
-btn3.addEventListener("click", () => {
-
-    if(input.value.trim().length == 0){
-        alert("검색어를 입력해주세요.");
-        return;
-
-    }else{
-        fetch("/selectMemberList",{
-            method : "POST",
-            headers : {"Content-Type" : "application/text"}, // 문자열 하나를 파라미터로 전달
-            body : input.value // 보내질 문자열 하나
-        })
-        .then( resp => resp.json())
-        .then( memberList => {
-            
-            result3.innerText = "";
+if(btn3 != null){
     
-            if(memberList.length != 0){ // 일치하는 회원이 있을때
+    btn3.addEventListener("click", () => {
     
-                // 향상된 for문으로 memberList 순차 접근
-                for (let i of memberList) {
+        if(input.value.trim().length == 0){
+            alert("검색어를 입력해주세요.");
+            return;
+    
+        }else{
+            fetch("/selectMemberList",{
+                method : "POST",
+                headers : {"Content-Type" : "application/text"}, // 문자열 하나를 파라미터로 전달
+                body : input.value // 보내질 문자열 하나
+            })
+            .then( resp => resp.json())
+            .then( memberList => {
+                
+                result3.innerText = "";
+        
+                if(memberList.length != 0){ // 일치하는 회원이 있을때
+        
+                    // 향상된 for문으로 memberList 순차 접근
+                    for (let i of memberList) {
+                        const tr = document.createElement("tr");
+                        const td1 = document.createElement("td");
+                        const td2 = document.createElement("td");
+                        const td3 = document.createElement("td");
+        
+                        td1.innerText = i.memberNo;
+                        td2.innerText = i.memberEmail;
+                        td3.innerText = i.memberNickname;
+        
+                        tr.append(td1,td2,td3);
+                        result3.append(tr);
+                    }
+        
+                }else{
                     const tr = document.createElement("tr");
-                    const td1 = document.createElement("td");
-                    const td2 = document.createElement("td");
-                    const td3 = document.createElement("td");
-    
-                    td1.innerText = i.memberNo;
-                    td2.innerText = i.memberEmail;
-                    td3.innerText = i.memberNickname;
-    
-                    tr.append(td1,td2,td3);
+        
+                    tr.innerHTML = "<td colspan=3><h4>일치하는 회원이 없습니다.</h4></td>";
                     result3.append(tr);
                 }
+            })
+            .catch(err => console.log(err));
+        }
     
-            }else{
-                const tr = document.createElement("tr");
-    
-                tr.innerHTML = "<td colspan=3><h4>일치하는 회원이 없습니다.</h4></td>";
-                result3.append(tr);
-            }
-        })
-        .catch(err => console.log(err));
-    }
-
-})
+    })
+}
 
 // 검색창 검색시 실시간으로 검색어(제목검색)
 const query = document.getElementById("query");
@@ -215,21 +225,29 @@ query.addEventListener("input", ()=>{
             if(searchList.length != 0){
 
                 resultSet.innerText = "";
+                resultSet.style.display = "block";
 
                 for (const i of searchList) {
                     const li = document.createElement("li");
-                    li.innerText = i.boardTitle;
+                    const a = document.createElement("a");
+
+                    a.setAttribute("href", "/board/" + i.boardCode + "/" + i.boardNo)
+                    a.innerHTML = i.boardTitle + "<span> - " + i.boardName + "</span>";
+
+                    li.append(a);
                     resultSet.append(li);
                 }
             }else{
-                
+                resultSet.style.display = "block";
+                resultSet.innerHTML = "<li>일치하는 게시글이 존재하지 않습니다.</li>"
             }
             
         })
         .catch(err => console.log(err));
 
+    }else{
+        resultSet.innerHTML = "";
+        resultSet.style.display = "none";
     }
-
-
 
 })

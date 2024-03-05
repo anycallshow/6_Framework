@@ -11,6 +11,10 @@ import org.springframework.stereotype.Repository;
 import edu.kh.project.board.model.dto.Board;
 import edu.kh.project.board.model.dto.Pagination;
 
+/**
+ * @author user1
+ *
+ */
 @Repository
 public class BoardDAO {
 	
@@ -136,6 +140,13 @@ public class BoardDAO {
 	 */
 	public List<Board> boardSearch(String query) {
 		return sqlSession.selectList("boardMapper.boardSearch", query);
+	}
+
+	/** DB 이미지(파일) 목록 조회 DAO
+	 * @return dbImageList
+	 */
+	public List<String> selectImageList() {
+		return sqlSession.selectList("boardMapper.selectImageListAll");
 	}
 	
 }

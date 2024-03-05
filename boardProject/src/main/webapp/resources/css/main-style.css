@@ -447,13 +447,27 @@ a{
     width: 500px;
     border: 1px solid black;
     border-radius: 5px;
+    display: none;
 }
 
 #resultSet>li{
+    padding: 2px 5px;
+}
+
+#resultSet>li>a{
+    text-decoration: none;
     font-weight: bold;
 }
 
+#resultSet>li>a:hover{
+    border-bottom: 1px solid #455ba8;
+}
+
+#resultSet>li>a>span{
+    color: pink;
+    font-weight: normal;
+}
+
 #resultSet>li:hover{
-    background-color: #ccc;
     cursor: pointer;
 }

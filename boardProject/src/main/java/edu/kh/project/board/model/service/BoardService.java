@@ -56,4 +56,9 @@ public interface BoardService {
 	 */
 	List<Board> boardSearch(String query);
 
+	/** DB 이미지(파일) 목록 조회 서비스
+	 * @return dbImageList
+	 */
+	List<String> selectImageList();
+
 }
