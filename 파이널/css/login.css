@@ -1,6 +1,9 @@
 /* 배경화면 */
 body{
-    background-image: url("윈터.jpg");
+    /* background-image: url("/images/gundae.jpg"); */
+    /* background-image: url("/images/sky.jpg"); */
+    /* background-image: url("/images/campus.jpg"); */
+    background-image: url("/images/윈터.jpg");
     background-repeat: no-repeat;
     background-size : cover;
 }
@@ -17,6 +20,16 @@ main{
     align-items: center;
 
     min-height: 500px;
+}
+
+/* 오시는 길 아이콘 */
+.come-on-area{
+    position: relative;
+    top: 50px;
+    left: 67px;
+
+    text-decoration: none;
+    color: black;
 }
 
 /* 로고 영역 */

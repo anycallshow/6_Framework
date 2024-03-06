@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>교과목 조회</title>
 
-    <link rel="stylesheet" href="subjectList.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="/css/subjectList.css">
 
 </head>
 <body>
 
+    
     <header>
 
         <div class="headerAll">
@@ -124,10 +126,9 @@
         </div>
     
     </header>
-    
     <main>
 
-        <form action="#" id="searchFrm">
+        <form action="search" id="searchFrm">
             <select name="key" id="subjectKey">
                 <option value="a">과목번호</option>
                 <option value="b">학과명</option>
@@ -138,7 +139,7 @@
             <button id="searchBtn">검색</button>
         </form>
 
-        <table>
+        <table class="list-table">
             <thead>
                 <tr>
                     <th>과목 번호</th>
@@ -146,7 +147,7 @@
                     <th>과목명</th>
                     <th>전담 교수</th>
                     <th>강의 시간</th>
-                    <th>과목 변경</th>
+                    <th>과목 수정</th>
                     <th>삭제</th>
                 </tr>
             </thead>
@@ -262,6 +263,6 @@
 
     </main>
 
-    <script src="subjectList.js"></script>
+    <script src="/js/subjectList.js"></script>
 </body>
 </html>

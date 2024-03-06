@@ -9,15 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.project.member.model.dao.MemberDAO;
 import edu.kh.project.member.model.dto.Member;
+import lombok.extern.slf4j.Slf4j;
 
 @Service // Service Layer
 		 // 비즈니스 로직(데이터 가공, dao호출, 트랜잭션 제어) 처리하는 클래스임을 명시
 		 // + Bean 등록하는 어노테이션
+@Slf4j
 public class MemberServiceImpl implements MemberService{
 	
 	// org.slf4j.Logger : 로그를 작성할 수 있는 객체
 	// org.slf4j.LoggerFactory
-	private Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
+	// private Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 													// 현재 클래스명.class
 	
 	// @Autowired : 작성된 필드와
@@ -35,10 +37,10 @@ public class MemberServiceImpl implements MemberService{
 	public Member login(Member inputMember) {
 		
 		// 로그 출력
-		logger.info("MemberService.login() 실행"); // 정보 출력
-		logger.debug("memberEmaill : " + inputMember.getMemberEmail());
-		logger.warn("이건 경고 용도");
-		logger.error("이건 오류 발생 시");
+		log.info("MemberService.login() 실행"); // 정보 출력
+		log.debug("memberEmaill : " + inputMember.getMemberEmail());
+		log.warn("이건 경고 용도");
+		log.error("이건 오류 발생 시");
 		
 		// 암호화 추가 예쩡
 		// System.out.println("암호화 확인 : " + bcrypt.encode(inputMember.getMemberPw()));
