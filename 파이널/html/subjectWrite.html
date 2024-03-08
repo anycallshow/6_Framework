@@ -1,180 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>교과목 등록</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="/css/subjectWrite.css">
+<link rel="stylesheet" href="/css/subjectWrite.css">
 
+<title>교과목 등록</title>
 </head>
 <body>
+<div class="container">
+    <h2>교과목 등록</h2>
+    <form>
+        <label for="courseName">과목명:</label>
+        <input type="text" id="courseName" name="courseName" required><br>
 
-    <header>
+        <label for="lectureCredits">강의 학점:</label>
+        <input type="text" id="lectureCredits" name="lectureCredits" required><br>
 
-        <div class="headerAll">
-    
-            <!-- 첫번째 줄 네비게이션 바 -->
-            <nav class="navigation1">
-                <!-- 공통 -->
-                <div class="navigation1-row1">
-                    <a href="#">오시는길</a>
-    
-                    <a href="#">공지사항</a>
-                    <a href="#">학사일정</a>
-                    <a href="#">1:1문의</a>
-                    <a href="#">자유게시판</a>
-                </div>
-        
-                <!-- 로그인 안했을 경우 -->
-                <!-- <div class="navigation1-row2">
-                    <button><a href="#">회원가입</a></button>
-                    <button><a href="#">로그인</a></button>
-                </div> -->
-                
-                <!-- 교수로 로그인 했을 경우 -->
-                <div class="navigation1-row2-professor">
-                    <div><span>홍길동</span> 교수 환영합니다.</div>
-                    <div class="quickMenu">
-                        <div id="quickMenu-easy">간편메뉴</div>
-                        <div id="quickMenu-close">닫기</div>
-                        <div id="quickMenu-myPage"><a href="#">내 정보 조회</a></div>
-                        <div id="quickMenu-pwChange"><a href="#">비밀번호 변경</a></div>
-                    </div>
-                </div>
-    
-            </nav>
-        
-            <!-- 두번째줄 네비게이션바 -->
-            <nav class="navigation2">
-                <!-- 클릭 시 메인 페이지로 이동하는 문구 -->
-                <div class="logoArea">
-                    <a href="/" class="logoText">
-                        <div>UNI-SYSTEM</div>
-                        <div>KH INFORMATION EDUCATION CENTER</div>
-                        <div>UNIVERSITY</div>
-                    </a>
-                </div>
-    
-                <div class="navigation2-row2">
-                    <a href="#" id="home">홈</a>
-    
-    
-                    <!-- 로그인(조건:학생,교수,교직원) 전 과 후로 메뉴 표시 다르게 -->
-                    
-                    <!-- 교수전용 -->
-                    <a href="#" id="student">학생</a>
-                    <a href="#" id="subject">교과목</a>
-                    <a href="#" id="exam">시험</a>
-                    <a href="#" id="professor">교수</a>
-                    <a href="#" id="otherW">기타</a>
-                </div>
-            </nav>
-        
-            <!-- 세번째줄 네비게이션바 -->
-            <nav class="navigation3">
-    
-                <!-- 클릭한 것에 따라서 내용 변경 -->
-    
-                <!-- 홈을 올렸을 경우 -->
-                <div class="navigation3-home">
-                    <a href="#">공지사항</a>
-                    <a href="#">학사일정</a>
-                    <a href="#">자유게시판</a>
-                    <a href="#">1:1문의</a>
-                </div>
-    
-                <!-- 학생을 올렸을 경우 -->
-                <div class="navigation3-student">
-                    <a href="#">학생 조회</a>
-                    <a href="#">성적 조회</a>
-                    <a href="#">성적 등록</a>
-                    <a href="#">성적 수정</a>
-                </div>
-    
-                <!-- 교과목을 올렸을 경우 -->
-                <div class="navigation3-subject">
-                    <a href="#">교과목 조회</a>
-                </div>
-    
-                <!-- 시험을 올렸을 경우 -->
-                <div class="navigation3-exam">
-                    <a href="#">시험 관련 메뉴 1</a>
-                    <a href="#">시험 관련 메뉴 2</a>
-                    <a href="#">시험 관련 메뉴 3</a>
-                </div>
-    
-                <!-- 교수에 올렸을 경우 -->
-                <div class="navigation3-professor">
-                    <a href="#">교수 조회</a>
-                    <a href="#">교원증 발급</a>
-                    <a href="#">교수 관련 메뉴</a>
-                </div>
-    
-                <!-- 기타에 올렸을 경우 -->
-                <div class="navigation3-otherW">
-                    <a href="#">기타 관련 메뉴 1</a>
-                    <a href="#">기타 관련 메뉴 2</a>
-                    <a href="#">기타 관련 메뉴 3</a>
-                </div>
-    
-    
-            </nav>
-    
-        </div>
-    
-    </header>
-    
-    <main>
+        <label for="classQuota">수강 정원:</label>
+        <input type="text" id="classQuota" name="classQuota" required><br>
 
-        <h2>교과목 등록</h2>
+        <label for="professor">담당 교수:</label>
+        <input type="text" id="professor" name="professor" required><br>
 
-        <form action="" id="writeFrm">
-            <ul id="infoUl">
-                <li>
-                    <span>과목명</span>
-                    <input type="text" name="" id=""><p></p>
-                </li>
-                <li>
-                    <span>강의 학점</span>
-                    <input type="text" name="" id="">
-                </li>
-                <li>
-                    <span>최대 수강 인원</span>
-                    <input type="number" name="" id="">
-                </li>
-                <li>
-                    <span>담당교수</span>
-                    <input type="text" name="" id="">
-                </li>
-                <li>
-                    <span>구분</span>
-                    <input type="text" name="" id="">
-                </li>
-                <li>
-                    <span>학과</span>
-                    <input type="text" name="" id="">
-                </li>
-                <li>
-                    <span>강의 학기</span>
-                    <input type="text" name="" id="">
-                </li>
-                <li>
-                    <span>강의 요일</span>
-                    <input type="text" name="" id="">
-                </li>
-                <li>
-                    <span>강의 시간</span>
-                    <input type="text" name="" id="">
-                </li>
-                <button>시간 체크</button>
-            </ul>
-            <button>등록</button>
-        </form>
+        <label for="department">학과:</label>
+        <input type="text" id="department" name="department" required><br>
 
+        <label for="semester">강의 학기:</label>
+        <input type="text" id="semester" name="semester" required><br>
 
-    </main>
+        <label for="lectureDay">강의 요일:</label>
+        <input type="text" id="lectureDay" name="lectureDay" required><br>
 
+        <label for="lectureTime">강의 시간:</label>
+        <input type="text" id="lectureTime" name="lectureTime" required><br>
+
+        <button type="submit">등록</button>
+    </form>
+</div>
 </body>
 </html>

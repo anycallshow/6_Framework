@@ -205,8 +205,6 @@
                         // 3. 동적으로 만들어낸 요소를 화면에 출력
                         $("#result2>tbody").html(value);
 
-
-
                     },
                     error : function(){
                         console.log("통신 실패");

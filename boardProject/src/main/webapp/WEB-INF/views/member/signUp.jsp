@@ -41,15 +41,10 @@
                 <span class="signUp-message" id="emailMessage">메일을 받을 수 있는 이메일을 입력해주세요.</span>
 
 
-
-
-
-
                 <!-- 인증번호 입력 -->
                 <label for="emailCheck">
                     <span class="required">*</span> 인증번호
                 </label>
-
 
                 <div class="signUp-input-area">
                     <input type="text" name="authKey" id="authKey" s placeholder="인증번호 입력" maxlength="6" autocomplete="off" >
