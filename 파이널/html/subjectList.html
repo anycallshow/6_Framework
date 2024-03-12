@@ -158,16 +158,16 @@
                     <td>국어국문학과</td>
                     <td>고전시가론특강</td>
                     <td>홍길동</td>
-                    <td>월,화(11:00~12:00)</td>
+                    <td>월(1교시~4교시)</td>
                     <td><button>과목수정</button></td>
                     <td><button>삭제</button></td>
                 </tr>
                 <tr>
-                    <td>1</td>
-                    <td>국어국문학과</td>
-                    <td>고전시가론특강</td>
-                    <td>홍길동</td>
-                    <td>월,화(11:00~12:00)</td>
+                    <td>2</td>
+                    <td>바로이맛아닙니과</td>
+                    <td>java</td>
+                    <td>전혜선</td>
+                    <td>금(5교시~6교시)</td>
                     <td><button>과목수정</button></td>
                     <td><button>삭제</button></td>
                 </tr>
@@ -259,9 +259,44 @@
             </div>
             <div>&gt;</div>
         </div>
-
-
     </main>
+
+    <div class="modal">
+        <div class="modal_body">
+            <div class="close-area">&times;</div>
+            <h2>과목 수정</h2><hr>
+            <form action="#" class="update-area" id="updateFrm">
+
+                <div class="update-group">
+                    <label for="classNo">과목 번호</label>
+                    <input type="text" name="classNo" id="classNo" disabled value="321421">
+                </div>
+
+                <div class="update-group">
+                    <label for="classNo">학과명</label>
+                    <input type="text" name="classNo" id="classNo" >
+                </div>
+
+                <div class="update-group">
+                    <label for="classNo">과목명</label>
+                    <input type="text" name="classNo" id="classNo" >
+                </div>
+
+                <div class="update-group">
+                    <label for="classNo">전담 교수</label>
+                    <input type="text" name="classNo" id="classNo" >
+                </div>
+
+                <div class="update-group">
+                    <label for="classNo">강의 시간</label>
+                    <input type="text" name="classNo" id="classNo" >
+                </div>
+                <button class="btn" id="btn1">수정하기</button>
+            </form>
+        </div>
+    </div>
+
+
 
     <script src="/js/subjectList.js"></script>
 </body>

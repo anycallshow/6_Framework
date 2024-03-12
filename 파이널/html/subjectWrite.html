@@ -1,42 +1,72 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet" href="/css/subjectWrite.css">
-
 <title>교과목 등록</title>
+<link rel="stylesheet" href="/css/subjectWrite.css">
 </head>
 <body>
 <div class="container">
     <h2>교과목 등록</h2>
     <form>
-        <label for="courseName">과목명:</label>
-        <input type="text" id="courseName" name="courseName" required><br>
+        <div class="form-group">
+            <label for="courseName">과목명</label>
+            <input type="text" id="courseName" name="courseName" placeholder="과목명을 입력해주세요.">
+        </div>
 
-        <label for="lectureCredits">강의 학점:</label>
-        <input type="text" id="lectureCredits" name="lectureCredits" required><br>
+        <div class="form-group">
+            <label for="lectureCredits">강의 학점</label>
+            <input type="text" id="lectureCredits" name="lectureCredits" placeholder="전공:3 교양:2">
+        </div>
 
-        <label for="classQuota">수강 정원:</label>
-        <input type="text" id="classQuota" name="classQuota" required><br>
+        <div class="form-group">
+            <label for="classQuota">수강 정원</label>
+            <input type="text" id="classQuota" name="classQuota" placeholder="최대 수강 인원을 입력해주세요.">
+        </div>
 
-        <label for="professor">담당 교수:</label>
-        <input type="text" id="professor" name="professor" required><br>
+        <div class="form-group">
+            <label for="department">학과</label>
+            <input type="text" id="department" name="department" placeholder="학과를 입력해주세요.">
+        </div>
 
-        <label for="department">학과:</label>
-        <input type="text" id="department" name="department" required><br>
+        <div class="form-group">
+            <label for="professor">담당 교수</label>
+            <input type="text" id="professor" name="professor" placeholder="담당 교수님을 입력해주세요.">
+        </div>
 
-        <label for="semester">강의 학기:</label>
-        <input type="text" id="semester" name="semester" required><br>
+        <div class="form-group">
+            <label for="semester">강의 학기</label>
+            <select name="semester" id="semester">
+                <option value="1">1학기</option>
+                <option value="2">2학기</option>
+            </select>
+            <!-- <input type="text" id="semester" name="semester" > -->
+        </div>
 
-        <label for="lectureDay">강의 요일:</label>
-        <input type="text" id="lectureDay" name="lectureDay" required><br>
+        <div class="form-group">
+            <label for="lectureDay">강의 요일</label>
+            <select name="lectureDay" id="lectureDay">
+                <option value="">월</option>
+                <option value="">화</option>
+                <option value="">수</option>
+                <option value="">목</option>
+                <option value="">금</option>
+            </select>
+            <!-- <input type="text" id="lectureDay" name="lectureDay" > -->
+        </div>
 
-        <label for="lectureTime">강의 시간:</label>
-        <input type="text" id="lectureTime" name="lectureTime" required><br>
+        <div class="form-group" id="lectureTime-area">
+            <label for="lectureTime">강의 시간</label>
+            <input type="text" id="startTime" name="lectureTime" placeholder="시작">교시
+            <input type="text" id="endTime" name="lectureTime" placeholder="마치는">교시
+            <button id="checkTime">시간 체크</button>
+        </div>
 
-        <button type="submit">등록</button>
+        <div class="btn-area">
+            <button type="reset">초기화</button>
+            <button type="submit">등록</button>
+        </div>
     </form>
 </div>
 </body>
