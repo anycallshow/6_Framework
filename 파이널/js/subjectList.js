@@ -44,14 +44,44 @@ for(i=1; i<rowList.length; i++){ // thead부분 제외.
     const updateBtn = row.cells[5];
 
     updateBtn.addEventListener("click", ()=>{
-        const number = row.cells[0].innerHTML; // 과목 번호
-        const department = row.cells[1].innerHTML; // 학과명
-        const courseName = row.cells[2].innerHTML; // 과목명
+
+        const classNo = row.cells[0].innerHTML; // 과목 번호
+        const departmentName = row.cells[1].innerHTML; // 학과명
+        const className = row.cells[2].innerHTML; // 과목명
         const professor = row.cells[3].innerHTML; // 전담 교수
-        const lectureTime = row.cells[4].innerHTML; // 강의 시간
+        const classTime = row.cells[4].innerHTML; // 강의 시간
 
-        // const str = lectureTime.split('(');
+        const modal = document.querySelector(".modal"); // 수정 모달창
 
+        const inputDeptName = document.getElementById("departmentName");
+        const inputClassTime = document.getElementById("className");
+        const inputProfessor = document.getElementById("professor");
+        const classStart = document.getElementById("classStart"); // 시작 시간
+        const classEnd = document.getElementById("classEnd"); // 종료 시간
+
+        const calssDay = document.getElementById("calssDay"); // 요일
+
+        const regex = /^([가-힣]+)\((\d+)교시~(\d+)교시\)$/;
+        // 원하는 부분 추출
+        const match = classTime.match(regex);
+        day = match[1][0];
+        startPeriod = parseInt(match[2]);
+        endPeriod = parseInt(match[3]);
+
+
+        modal.style.display="flex";
+
+        inputDeptName.value = departmentName;
+        inputClassTime.value = className;
+        inputProfessor.value = professor;
+        classStart.value = startPeriod;
+        classEnd.value = endPeriod;
+        calssDay.value = day;
+
+        
+
+
+        
         
 
     })

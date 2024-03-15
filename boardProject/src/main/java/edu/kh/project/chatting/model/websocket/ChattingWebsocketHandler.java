@@ -46,8 +46,8 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
         // 이를 필드에 선언해준sessions에 저장
         sessions.add(session);
     
-        //logger.info("{}연결됨", session.getId());
-//      System.out.println(session.getId() + "연결됨");
+        logger.info("{}연결됨", session.getId());
+        System.out.println(session.getId() + "연결됨");
     }
     
     
@@ -65,7 +65,7 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
         
         Message msg = objectMapper.readValue( message.getPayload(), Message.class);
         // Message 객체 확인
-        System.out.println(msg); 
+        System.out.println("msg::" +msg); 
         
         // DB 삽입 서비스 호출
         int result = service.insertMessage(msg);
@@ -84,7 +84,7 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler{
                 int loginMemberNo = ((Member)s.getAttributes().get("loginMember")).getMemberNo();
                 logger.debug("loginMemberNo : " + loginMemberNo);
                 
-                // 로그인 상태인 회원 중 targetNo가 일티하는 회원에게 메세지 전달
+                // 로그인 상태인 회원 중 targetNo가 일치하는 회원에게 메세지 전달
                 if(loginMemberNo == msg.getTargetNo() || loginMemberNo == msg.getSenderNo()) {
                     
                     s.sendMessage(new TextMessage(new Gson().toJson(msg)));

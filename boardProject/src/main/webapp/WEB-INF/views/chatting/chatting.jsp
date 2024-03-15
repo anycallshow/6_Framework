@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ page import="java.util.Random" %>
 
 <!DOCTYPE html>
 <html lang=ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,12 +14,17 @@
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/board/boardDetail-style.css">
-   <link rel="stylesheet" href="/resources/css/chatting/chatting-style.css">
+    <link rel="stylesheet" href="/resources/css/chatting/chatting-style.css">
 
     <script src="https://kit.fontawesome.com/a2e8ca0ae3.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+   <%
+      Random ran = new Random();
+      int number = ran.nextInt(100) + 1;
+   %>
+
    <main>
 
       <jsp:include page="../common/header.jsp"></jsp:include>
@@ -60,7 +67,7 @@
                   </div>
                   <div class="item-body">
                      <p>
-                        <span class="target-name">${room.targetNickName}</span>
+                        <span class="target-name">${room.targetNickName}<%= number %></span>
                         <span class="recent-send-time">${room.sendTime}</span>
                      </p>
                      <div>

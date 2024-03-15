@@ -68,7 +68,7 @@
                     <a href="#" id="student">학생</a>
                     <a href="#" id="subject">교과목</a>
                     <a href="#" id="exam">시험</a>
-                    <a href="#" id="professor">교수</a>
+                    <a href="#" id="professor-menu">교수</a>
                     <a href="#" id="otherW">기타</a>
                 </div>
             </nav>
@@ -265,33 +265,67 @@
         <div class="modal_body">
             <div class="close-area">&times;</div>
             <h2>과목 수정</h2><hr>
-            <form action="#" class="update-area" id="updateFrm">
-
-                <div class="update-group">
-                    <label for="classNo">과목 번호</label>
-                    <input type="text" name="classNo" id="classNo" disabled value="321421">
+            <form>
+                <div class="form-group">
+                    <label for="className">과목명</label>
+                    <input type="text" id="className" name="className" placeholder="과목명을 입력해주세요.">
+                </div>
+        
+                <div class="form-group">
+                    <label for="classPoint">강의 학점</label>
+                    <input type="text" id="classPoint" name="classPoint" placeholder="전공:3 교양:2">
+                </div>
+        
+                <div class="form-group">
+                    <label for="classMax">수강 정원</label>
+                    <input type="text" id="classMax" name="classMax" placeholder="최대 수강 인원을 입력해주세요.">
+                </div>
+        
+                <div class="form-group">
+                    <label for="departmentName">학과</label>
+                    <input type="text" id="departmentName" name="departmentName" placeholder="학과를 입력해주세요.">
+                </div>
+        
+                <div class="form-group">
+                    <label for="professor">담당 교수</label>
+                    <input type="text" id="professor" name="professor" placeholder="담당 교수님을 입력해주세요.">
+                </div>
+        
+                <div class="form-group">
+                    <label>강의 학기</label>
+                    <select name="grade" id="grade">
+                        <option value="1">1학년</option>
+                        <option value="2">2학년</option>
+                        <option value="3">3학년</option>
+                        <option value="4">4학년</option>
+                    </select>
+                    <select name="semester" id="semester">
+                        <option value="1">1학기</option>
+                        <option value="2">2학기</option>
+                    </select>
+                    <!-- <input type="text" id="semester" name="semester" > -->
+                </div>
+        
+                <div class="form-group">
+                    <label for="calssDay">강의 요일</label>
+                    <select name="calssDay" id="calssDay">
+                        <option value="월">월</option>
+                        <option value="화">화</option>
+                        <option value="수">수</option>
+                        <option value="목">목</option>
+                        <option value="금">금</option>
+                    </select>
+                    <!-- <input type="text" id="lectureDay" name="lectureDay" > -->
+                </div>
+        
+                <div class="form-group" id="classTime-area">
+                    <label for="classTime">강의 시간</label>
+                    <input type="text" id="classStart" name="classTime" placeholder="시작">교시
+                    <input type="text" id="classEnd" name="classTime" placeholder="마치는">교시
+                    <button id="checkTime">시간 체크</button>
                 </div>
 
-                <div class="update-group">
-                    <label for="classNo">학과명</label>
-                    <input type="text" name="classNo" id="classNo" >
-                </div>
-
-                <div class="update-group">
-                    <label for="classNo">과목명</label>
-                    <input type="text" name="classNo" id="classNo" >
-                </div>
-
-                <div class="update-group">
-                    <label for="classNo">전담 교수</label>
-                    <input type="text" name="classNo" id="classNo" >
-                </div>
-
-                <div class="update-group">
-                    <label for="classNo">강의 시간</label>
-                    <input type="text" name="classNo" id="classNo" >
-                </div>
-                <button class="btn" id="btn1">수정하기</button>
+                <button class="btn">수정하기</button>
             </form>
         </div>
     </div>

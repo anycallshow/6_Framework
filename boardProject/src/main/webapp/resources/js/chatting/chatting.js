@@ -38,7 +38,7 @@ targetInput.addEventListener("input", e => {
       fetch("/chatting/selectTarget?query="+query)
       .then(resp => resp.json())
       .then(list => {
-         //console.log(list);
+         // console.log("list::" + list);
 
          resultArea.innerHTML = ""; // 이전 검색 결과 비우기
 
@@ -93,7 +93,7 @@ function chattingEnter(e){
    fetch("/chatting/enter?targetNo="+targetNo)
    .then(resp => resp.text())
    .then(chattingNo => {
-      console.log(chattingNo);
+      console.log("chattingNo :: " + chattingNo);
       
       selectRoomList(); // 채팅방 목록 조회
       
@@ -232,10 +232,6 @@ function selectRoomList(){
 }
 
 
-
-
-
-
 // 채팅 메세지 영역
 const display = document.getElementsByClassName("display-chatting")[0];
 
@@ -341,7 +337,6 @@ function selectChattingFn() {
 
 
 }
-
 
 // ----------------------------------------------------------------------------------------------------------------
 
